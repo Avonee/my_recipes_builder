@@ -3,6 +3,7 @@ export const FETCH_RECIPES = 'fetch_recipes'
 export const FETCH_STORAGE_RECIPES = 'fetch_storage_recipes'
 export const SAVE_TO_STORAGE = 'save_to_storage'
 export const SEARCH_LISTS = 'search_lists'
+export const DEL_ITEM = 'del_item'
 export const SHOW_RECIPE = 'show_recipe'
 export const CHANGE_TAB = 'change_tab'
 
@@ -34,6 +35,15 @@ export function searchLists(term, fromLists) {
     return {
         type: SEARCH_LISTS,
         payload: sLists
+    }
+}
+
+export function delItem(item, fromLists) {
+    const index = fromLists.findIndex(food => food.id === item.id);
+    fromLists.splice(index, 1);
+    return {
+        type: DEL_ITEM,
+        payload: fromLists
     }
 }
 

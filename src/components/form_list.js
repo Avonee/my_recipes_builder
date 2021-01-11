@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Form, Input, Button, message, Modal } from 'antd';
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import RecipeListItem from './recipe_list_item'
-import { showRecipe, fetchStorageRecipes, saveToStorage, searchLists } from '../actions'
+import { showRecipe, fetchStorageRecipes, saveToStorage, searchLists, delItem } from '../actions'
 import _ from 'lodash'
 
 export default function FormList(props) {
@@ -135,8 +135,7 @@ export default function FormList(props) {
     }
 
     const removeRecipe = (recipe) => {
-        const index = myLists.findIndex(food => food.id === recipe.id);
-        myLists.splice(index, 1);
+        disPatch(delItem(recipe, myLists))
         disPatch(saveToStorage('myDatas', myLists))
         loadAll()
     }

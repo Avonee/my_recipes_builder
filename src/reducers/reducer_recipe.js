@@ -1,4 +1,4 @@
-import { SHOW_RECIPE, FETCH_RECIPES, FETCH_STORAGE_RECIPES, SAVE_TO_STORAGE, SEARCH_LISTS } from '../actions/index'
+import { SHOW_RECIPE, FETCH_RECIPES, FETCH_STORAGE_RECIPES, SAVE_TO_STORAGE, SEARCH_LISTS, DEL_ITEM } from '../actions/index'
 const initialState = {
     fetchRecipes: [],
     fetchStorageRecipes: [],
@@ -24,6 +24,10 @@ export default function RecipeReducer(state = initialState, action) {
             return {
                 ...state,
                 searchLists: action.payload
+            }
+        case DEL_ITEM:
+            return {
+                ...state
             }
         case SHOW_RECIPE:
             const win = window.open(action.payload, '_blank')
