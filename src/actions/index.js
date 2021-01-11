@@ -40,17 +40,8 @@ export function searchLists(term, fromLists) {
 export function fetchRecipes(term) {
 
     return async (dispatch) => {
-        // const url = `http://www.recipepuppy.com/api/?q=${term}`
         const url = `/api/?q=${term}`
         const request = await axios.get(url)
-
-        // return request.then(
-        //     response => dispatch({
-        //         type: FETCH_RECIPES,
-        //         // payload: request,
-        //         payload: response,
-        //     })
-        // )
 
         dispatch({
             type: FETCH_RECIPES,

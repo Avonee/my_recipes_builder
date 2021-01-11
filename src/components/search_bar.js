@@ -45,7 +45,6 @@ export default function SearchBar(props) {
             }
 
             return (renderLists.map(myList => {
-                // console.log('每一筆資料 my：：：', myList)
                 return (
                     <RecipeListItem
                         recipe={myList}

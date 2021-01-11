@@ -6,27 +6,11 @@ import RecipeListItem from './recipe_list_item'
 import { showRecipe, fetchStorageRecipes, saveToStorage, searchLists } from '../actions'
 import _ from 'lodash'
 
-// const MOCK_LIST = [
-//     {
-//         "title": "Copycat Chilis Southwest Egg Rolls Recipe",
-//         "href": "",
-//         "ingredients": "avocado, buttermilk, black beans, cayenne, chicken, chili powder, corn, cumin, dill weed, parsley, flour tortillas, garlic powder, green onion, mayonnaise, monterey jack cheese, onions, onion powder, black pepper, red pepper, avocado, salt, salt, sour cream, spinach, tomato, vegetable oil, white vinegar",
-//         "thumbnail": ""
-//     },
-//     {
-//         "title": "Vegan Egg White Substitute Recipe",
-//         "href": "http://www.grouprecipes.com/11755/vegan-egg-white-substitute.html",
-//         "ingredients": "flax seed, water",
-//         "thumbnail": ""
-//     },
-// ]
-
 export default function FormList(props) {
 
     const myLists = useMappedState(state => state.recipes.fetchStorageRecipes)
     const searchMyLists = useMappedState(state => state.recipes.searchLists)
     const disPatch = useDispatch()
-    // const [myLists, setMyLists] = useState([])
     const [myTitle, setMyTitle] = useState('')
     const [myIngredients, setMyIngredients] = useState('')
     const [myLink, setMyLink] = useState('')
@@ -35,32 +19,18 @@ export default function FormList(props) {
     const [startEdit, setStartEdit] = useState(false)
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [searchItem, setSearchItem] = useState('')
-    // const [searchLists, setSearchLists] = useState([])
-
 
     const loadAll = useCallback(() => {
-        // loadStorage()
         disPatch(fetchStorageRecipes())
     }, [])
 
     useEffect(() => {
-        //for temporary
-        // localStorage.clear()
         loadAll()
-        // setMyLists(MOCK_LIST) // for test
     }, [loadAll])
-
-
-    // const searchMyLists = (term) => {
-    //     const re = new RegExp(`${term}`);
-    //     const sLists = myLists.filter(record => (record.title.match(re) || record.ingredients.match(re)))
-    //     setSearchLists(sLists)
-    // }
 
     const onInputChange = (term) => {
         const debouncedFetchRecipes = _.debounce(term => {
             disPatch(searchLists(term, myLists))
-            // searchMyLists(term) 
         }, 300)
         setSearchItem(term)
         debouncedFetchRecipes(term)
@@ -116,13 +86,6 @@ export default function FormList(props) {
         setMyImageLink(myIL)
     }
 
-    // const loadStorage = () => {
-    //     let loadDatas = JSON.parse(localStorage.getItem('myDatas'))
-    //     if (loadDatas) {
-    //         setMyLists(loadDatas)
-    //     }
-    // }
-
     const saveToStorageRecipes = () => {
 
         if (myTitle !== '' && myIngredients !== '') {
@@ -147,11 +110,8 @@ export default function FormList(props) {
                 newList = myLists
             }
 
-
             disPatch(saveToStorage('myDatas', newList))
             loadAll()
-            // setMyLists(newList)
-            // localStorage.setItem('myDatas', JSON.stringify(newList))
 
         }
         setIsModalVisible(false);
@@ -175,16 +135,9 @@ export default function FormList(props) {
     }
 
     const removeRecipe = (recipe) => {
-        // for (var i = 0; i < myLists.length; i++) {
-        //     if (myLists[i].title === recipe.title) {
-        //         myLists.splice(i, 1);
-        //     }
-        // }
         const index = myLists.findIndex(food => food.id === recipe.id);
         myLists.splice(index, 1);
         disPatch(saveToStorage('myDatas', myLists))
-        // setMyLists(myLists)
-        // localStorage.setItem('myDatas', JSON.stringify(myLists))
         loadAll()
     }
 
@@ -200,7 +153,6 @@ export default function FormList(props) {
             }
 
             return (renderLists.map(myList => {
-                // console.log('每一筆資料 my：：：', myList)
                 return (
                     <div>
                         <RecipeListItem
