@@ -16,7 +16,7 @@ export default function SearchBar(props) {
     const loadAll = useCallback(() => {
         disPatch(fetchRecipes(''))
         disPatch(fetchStorageRecipes())
-    }, [tabNewName])
+    }, [])
 
     useEffect(() => {
         if (tabNewName === '1') {
@@ -35,7 +35,7 @@ export default function SearchBar(props) {
 
     const getMyRecipeItems = () => {
 
-        if (myLists.length > 0) {
+        if (myLists && myLists.length > 0) {
 
             let renderLists = []
             if (term !== '') {
