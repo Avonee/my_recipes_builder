@@ -28,10 +28,12 @@ export default function FormList(props) {
         loadAll()
     }, [loadAll])
 
+    const debouncedFetchRecipes = useCallback(_.debounce(term => {
+        disPatch(searchLists(term, myLists))
+    }, 300), []
+    )
+
     const onInputChange = (term) => {
-        const debouncedFetchRecipes = _.debounce(term => {
-            disPatch(searchLists(term, myLists))
-        }, 300)
         setSearchItem(term)
         debouncedFetchRecipes(term)
     }
