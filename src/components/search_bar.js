@@ -24,13 +24,17 @@ export default function SearchBar(props) {
         }
     }, [loadAll])
 
-    const onInputChange = (term) => {
-        const debouncedFetchRecipes = _.debounce(term => {
+    const search_debouncedFetchRecipes = useCallback(
+        _.debounce(term => {
             disPatch(fetchRecipes(term))
             disPatch(searchLists(term, myLists))
-        }, 300)
+        }, 1000), []
+    )
+
+    const onInputChange = (term) => {
         setTerm(term)
-        debouncedFetchRecipes(term)
+        search_debouncedFetchRecipes(term)
+        // debouncedFetchRecipes(term)
     }
 
     const getMyRecipeItems = () => {

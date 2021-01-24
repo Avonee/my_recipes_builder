@@ -91,7 +91,7 @@ export default function FormList(props) {
         if (myTitle !== '' && myIngredients !== '') {
 
             let addOne = [{
-                "id": (startEdit === false) ? (myLists && myLists.length === 0 ? 0 : myLists[myLists.length - 1].id + 1) : editID,
+                "id": (startEdit === false) ? (myLists && myLists.length === null || myLists.length === 0 ? 0 : myLists[myLists.length - 1].id + 1) : editID,
                 "title": myTitle,
                 "href": myLink ?? "",
                 "ingredients": myIngredients,
