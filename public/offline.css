@@ -1,0 +1,30 @@
+.code-box-demo {
+    background:#1c7d9b;
+    overflow: hidden;
+    padding: 24px;
+    /* height: 100%; */
+    overflow: auto;
+}
+  
+.card-container p {
+margin: 0;
+}
+.card-container > .ant-tabs-card .ant-tabs-content {
+/* height: 120px; */
+margin-top: -16px;
+}
+.card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+background: #fff;
+padding: 16px;
+min-height: 89vh;
+}
+
+.main-container {
+}
+
+.page-main-title{
+font-weight: bold;
+font-size: 30px;
+color:#97dbf0;
+text-align: center;
+}
