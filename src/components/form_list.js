@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import 'antd/dist/antd.css';
-import { Form, Input, Button, message, Modal } from 'antd';
+import { Form, Input, Button, message, Modal, Row } from 'antd';
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import RecipeListItem from './recipe_list_item'
 import { showRecipe, fetchStorageRecipes, saveToStorage, searchLists, delItem } from '../actions'
@@ -63,8 +63,6 @@ export default function FormList(props) {
 
     const tailLayout = {
         wrapperCol: {
-            offset: 8,
-            span: 16,
         },
     };
 
@@ -169,7 +167,7 @@ export default function FormList(props) {
                             }
                         />
                         <div style={{ position: 'relative' }}>
-                            <div style={{ position: 'absolute', top: -68, right: 0 }}>
+                            <div style={{ position: 'absolute', top: -78, right: 30 }}>
                                 {myList.editIcon === true ? <img src="../assets/images/edit.png" alt="edit image" onClick={() => editRecipe(myList)}
                                     style={{ width: 40, height: 40, marginRight: 8, padding: 8, marginBottom: 10 }}
                                 /> : null}
@@ -221,9 +219,10 @@ export default function FormList(props) {
                 </Form.Item>
             </Modal>
 
-            <ul className="list-group">
+            <Row gutter={30}>
                 {getMyRecipeItems()}
-            </ul>
+            </Row>
+
         </Form >
     )
 }

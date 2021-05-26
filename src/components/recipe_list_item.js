@@ -1,22 +1,24 @@
 import React from 'react'
+import 'antd/dist/antd.css';
+import { Card, Col } from 'antd';
+
+const { Meta } = Card;
 
 const RecipeListItem = ({ recipe, onRecipeSelect }) => {
     const { title, thumbnail, ingredients } = recipe
 
     return (
-        <ul>
+        <Col className="gutter-row" span={8}>
             <li onClick={() => onRecipeSelect(recipe)} className="list-group-item">
-                <div className="recipe-list-media">
-                    <div className="media-left">
-                        <img className="media-object" src={thumbnail || '../assets/images/no-image-available.jpg'} />
-                    </div>
-                    <div className="media-body">
-                        <div className="media-heading title">{title}</div>
-                        <p>Ingredients: <span className="ingredients">{ingredients}</span></p>
-                    </div>
-                </div>
+                <Card
+                    hoverable
+                    style={{ width: 200 }}
+                    cover={<img alt="example" src={thumbnail || '../assets/images/no-image-available.jpg'} />}
+                >
+                    <Meta className="ingredients" title={title} description={ingredients} />
+                </Card>
             </li>
-        </ul>
+        </Col>
     )
 }
 

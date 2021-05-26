@@ -73,22 +73,24 @@
 }
 
 .search-bar {
-  margin: 20px;
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 5.5em;
   margin-inline-end: 0px;
+  margin: 20px auto;
+  width: 80%;
 }
 
 .button-add{
-      width: 37.5em;
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      margin-inline-start: -8.5em;
-      background-color: #209dc4 !important;
-      border-color: #209dc4 !important;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  background-color: #209dc4 !important;
+  border-color: #209dc4 !important;
+  margin-left: 0;
+  margin-right: 0 ;
+  width: 100%;
 }
 
 .title {
@@ -97,11 +99,16 @@
 }
 
 .ingredients {
-  color: #888888;
+  white-space: nowrap;
+}
+
+.ant-card-meta-description{
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .search-bar input {
-  width: 37.5em;
+  width: 100%;
   height: 40px;
   border-radius: 20px;
   padding-left: 5%;
@@ -110,17 +117,28 @@
 }
 
 .main-container {
-  width: 600px;
+  /* width: 600px; */
+}
+
+.ant-row{
+  margin: 0 auto !important;
+  max-width: 1152px;
+  min-width: 240px;
+  width: 80%;
+}
+
+.gutter-row{
+  max-width: 100% !important;
 }
 
 .list-group-item {
   cursor: pointer;
   position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1em;
-    background-color: #fff;
-    border: 1px solid #ddd;
+  display: block;
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 1em;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
 
 .list-group-item:hover {
