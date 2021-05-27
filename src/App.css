@@ -144,6 +144,19 @@
   background-color: #9bddec;
 }
 
+.ant-card-cover{
+  height: 200px; 
+  overflow: hidden;
+}
+
+.ant-card-cover img {
+  transition: transform .5s ease;
+}
+
+.ant-card-cover:hover img {
+  transform: scale(1.15);
+}
+
 #components-form-demo-control-ref .ant-btn {
   margin-right: 20px;
 }
