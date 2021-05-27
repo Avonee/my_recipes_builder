@@ -1,7 +1,8 @@
-import { SHOW_RECIPE, FETCH_RECIPES, FETCH_STORAGE_RECIPES, SAVE_TO_STORAGE, SEARCH_LISTS, DEL_ITEM } from '../actions/index'
+import { SHOW_RECIPE, FETCH_RECIPES, FETCH_STORAGE_RECIPES, FETCH_FAVOR_RECIPES, SAVE_TO_STORAGE, SEARCH_LISTS, DEL_ITEM } from '../actions/index'
 const initialState = {
     fetchRecipes: [],
     fetchStorageRecipes: [],
+    fetchFavorRecipes: [],
     searchLists: []
 }
 const MAX_RESULTS = 20
@@ -17,6 +18,11 @@ export default function RecipeReducer(state = initialState, action) {
             return {
                 ...state,
                 fetchStorageRecipes: action.payload
+            }
+        case FETCH_FAVOR_RECIPES:
+            return {
+                ...state,
+                fetchFavorRecipes: action.payload
             }
         case SAVE_TO_STORAGE:
             return state

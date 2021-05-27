@@ -1,6 +1,7 @@
 import axios from 'axios'
 export const FETCH_RECIPES = 'fetch_recipes'
 export const FETCH_STORAGE_RECIPES = 'fetch_storage_recipes'
+export const FETCH_FAVOR_RECIPES = 'fetch_favor_recipes'
 export const SAVE_TO_STORAGE = 'save_to_storage'
 export const SEARCH_LISTS = 'search_lists'
 export const DEL_ITEM = 'del_item'
@@ -18,6 +19,14 @@ export function fetchStorageRecipes() {
     let loadDatas = JSON.parse(localStorage.getItem('myDatas'))
     return {
         type: FETCH_STORAGE_RECIPES,
+        payload: loadDatas
+    }
+}
+
+export function fetchFavorRecipes() {
+    let loadDatas = JSON.parse(localStorage.getItem('myFavor'))
+    return {
+        type: FETCH_FAVOR_RECIPES,
         payload: loadDatas
     }
 }

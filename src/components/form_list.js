@@ -187,6 +187,12 @@ export default function FormList(props) {
             {...layout}
             ref={formRef} name="control-ref"
         >
+            <Button className='button-add' type="primary" shape='circle'>
+                <img src="../assets/images/plus.png" alt="plus image" onClick={() => showAddForm()}
+                    style={{ width: 35, height: 35, marginTop: -10 }}
+                />
+            </Button>
+
             <div className="search-bar">
                 <input
                     autoFocus
@@ -196,9 +202,6 @@ export default function FormList(props) {
                 />
             </div>
 
-            <Form.Item {...tailLayout}>
-                <Button className='button-add' type="primary" onClick={() => showAddForm()}>ADD</Button>
-            </Form.Item>
             <Modal title="Recipe form" visible={isModalVisible}
                 onCancel={handleCancel}
                 footer={[<Form.Item {...tailLayout}>

@@ -4,6 +4,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { Tabs } from 'antd';
 import SearchBar from './components/search_bar'
+import FavorList from './components/favor_list'
 import FormList from './components/form_list'
 
 //for redux
@@ -32,7 +33,13 @@ function App() {
               <SearchBar />
             </div>
           </TabPane>
-          <TabPane tab="Add Recipes" key="2">
+          {/* <TabPane tab="My Favorite" key="2">
+            <div className="main-container">
+              <p className='page-main-title'>My Favorite</p>
+              <FavorList />
+            </div>
+          </TabPane> */}
+          <TabPane tab="My Recipes" key="3">
             <div className="main-container">
               <p className='page-main-title'>My Recipes</p>
               <FormList />

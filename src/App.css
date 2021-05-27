@@ -84,13 +84,12 @@
 }
 
 .button-add{
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  background-color: #209dc4 !important;
-  border-color: #209dc4 !important;
-  margin-left: 0;
+  background-color: transparent !important;
+  border-color:transparent !important;
+  margin-left: 86%; 
   margin-right: 0 ;
-  width: 100%;
+  display: inherit !important;
+  margin-top: -32px !important;
 }
 
 .title {
@@ -121,7 +120,7 @@
 }
 
 .ant-row{
-  margin: 0 auto !important;
+  margin: 24px auto !important;
   max-width: 1152px;
   min-width: 240px;
   width: 80%;
