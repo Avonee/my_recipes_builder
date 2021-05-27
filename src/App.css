@@ -84,12 +84,36 @@
 }
 
 .button-add{
-  background-color: transparent !important;
-  border-color:transparent !important;
-  margin-left: 86%; 
+  background-color:transparent !important;
+  border-color: #209dc4 !important;
+  margin-left: 83%; 
   margin-right: 0 ;
   display: inherit !important;
   margin-top: -32px !important;
+}
+
+.button-add:hover{
+  background-color:#209dc4 !important;
+}
+
+@media only screen and (max-width: 700px){
+  .button-add {
+    margin-left: 70%;
+    width: 18%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .button-add {
+    margin-left: 72%;
+    width: 18%;
+  }
+}
+
+.ant-btn:empty {
+  visibility: inherit;
+  width: 100px !important;
 }
 
 .title {

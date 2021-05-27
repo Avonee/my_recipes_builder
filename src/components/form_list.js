@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import 'antd/dist/antd.css';
 import { Form, Input, Button, message, Modal, Row } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import { useMappedState, useDispatch } from 'redux-react-hook'
 import RecipeListItem from './recipe_list_item'
 import { showRecipe, fetchStorageRecipes, saveToStorage, searchLists, delItem } from '../actions'
@@ -187,10 +188,8 @@ export default function FormList(props) {
             {...layout}
             ref={formRef} name="control-ref"
         >
-            <Button className='button-add' type="primary" shape='circle'>
-                <img src="../assets/images/plus.png" alt="plus image" onClick={() => showAddForm()}
-                    style={{ width: 35, height: 35, marginTop: -10 }}
-                />
+            <Button className='button-add' type="primary" icon={<PlusOutlined />} onClick={() => showAddForm()}>
+                Add
             </Button>
 
             <div className="search-bar">
