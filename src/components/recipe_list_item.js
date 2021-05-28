@@ -13,7 +13,7 @@ const RecipeListItem = ({ recipe, onRecipeSelect }) => {
                 <Card
                     hoverable
                     style={{ width: 200 }}
-                    cover={<img alt="example" src={thumbnail || '../assets/images/no-image-available.jpg'} />}
+                    cover={<img alt="example" src={thumbnail || '../assets/images/logo.png'} />}
                 >
                     <Meta className="ingredients" title={title} description={ingredients} />
                 </Card>

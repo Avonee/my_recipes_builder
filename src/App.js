@@ -4,7 +4,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { Tabs } from 'antd';
 import SearchBar from './components/search_bar'
-import FavorList from './components/favor_list'
+// import FavorList from './components/favor_list'
 import FormList from './components/form_list'
 
 //for redux
@@ -26,8 +26,8 @@ function App() {
   return (
     <section className='code-box-demo'>
       <div className="card-container">
-        <Tabs type="card" size='large' activeKey={activeTab} onChange={changeTab}>
-          <TabPane tab="Search Recipes" key="1">
+        <Tabs type="card" size='large' addIcon="" activeKey={activeTab} onChange={changeTab}>
+          <TabPane tab={<span><img alt="logo" src='../assets/images/logo.png' style={{ width: 50, height: 50 }} /> Awesome Recipes </span>} key="1">
             <div className="main-container">
               <p className='page-main-title'>Awesome Recipes</p>
               <SearchBar />
@@ -39,7 +39,7 @@ function App() {
               <FavorList />
             </div>
           </TabPane> */}
-          <TabPane tab="My Recipes" key="3">
+          <TabPane tab={<span><img alt="user" src='../assets/images/user.png' className="rightTab" /> </span>} key="3">
             <div className="main-container">
               <p className='page-main-title'>My Recipes</p>
               <FormList />
